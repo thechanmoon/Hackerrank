@@ -12,7 +12,7 @@ public class Day6 {
     }
 
     static void printString(String str) {
-        String retString = str;
+        // String retString = str;
         char[] chars = str.toCharArray();
 
         for (int i = 0; i < chars.length; i++) {
