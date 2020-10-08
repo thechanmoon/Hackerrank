@@ -6,7 +6,7 @@ import java.util.*;
 import java.util.concurrent.*;
 import java.util.regex.*;
 
-public class Solution {
+public class MinMaxSum {
     // Complete the miniMaxSum function below.
     static void miniMaxSum(int[] arr) {
         if (arr == null || arr.length < 1)
