@@ -22,37 +22,29 @@ function readLine() {
     return inputString[currentLine++];
 }
 
-function calcSum(arr)
-{
+function calcSum(arr) {
     let max = 0;
     let sum = 0;
-    
 
-    for(let i = 0; i < arr.length -2; i++)
-    {
-        for(let j = 0; j < arr[i].length -2; j++)
-        {
-            sum = calcHourGlassSum(arr,i,j);
-            if( (i==0 && j == 0) || sum > max)
-            {
+
+    for (let i = 0; i < arr.length - 2; i++) {
+        for (let j = 0; j < arr[i].length - 2; j++) {
+            sum = calcHourGlassSum(arr, i, j);
+            if ((i == 0 && j == 0) || sum > max) {
                 max = sum;
             }
         }
     }
 
-    return max;  
+    return max;
 }
-    
-function calcHourGlassSum(arr, row, col)
-{
+
+function calcHourGlassSum(arr, row, col) {
     let sum = 0;
 
-    for(let i = row; i < row+3; i++)
-    {
-        for(let j = col; j < col+3; j++)
-        {
-            if(i==row||i==row+2||(i==row+1 && j==col+1))
-            {
+    for (let i = row; i < row + 3; i++) {
+        for (let j = col; j < col + 3; j++) {
+            if (i == row || i == row + 2 || (i == row + 1 && j == col + 1)) {
                 sum += arr[i][j];
             }
         }
