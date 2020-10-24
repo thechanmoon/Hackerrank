@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 class IslandMatrix {
     
-    static int numIsland(int[][] grid, int treshold)
+    static int numIsland(int[][] grid)
     {
         if(grid == null || grid.Length == 0)
         {
@@ -14,29 +14,29 @@ class IslandMatrix {
 
         for(int i = 0; i < grid.Length; i++){
             for(int j = 0; j < grid[0].Length; j++){
-                if(grid[i][j] >= treshold){
-                    numIsland += dfs(grid, i, j ,treshold);
+                if(grid[i][j] == 1){
+                    numIsland += dfs(grid, i, j);
                 }
             }
         }
         return numIsland;
     }
 
-    static int dfs(int[][] grid, int i, int j, int treshold)
+    static int dfs(int[][] grid, int i, int j)
     {
-        if(i < 0 || i >= grid.Length || j < 0 || j >= grid[i].Length || grid[i][j] < treshold){
+        if(i < 0 || i >= grid.Length || j < 0 || j >= grid[i].Length || grid[i][j] == 0){
             return 0;
         }
         grid[i][j] = 0;
-        dfs(grid, i + 1, j ,treshold);
-        dfs(grid, i - 1, j ,treshold);
-        dfs(grid, i, j + 1 ,treshold);
-        dfs(grid, i, j - 1 ,treshold);
+        dfs(grid, i + 1, j);
+        dfs(grid, i - 1, j );
+        dfs(grid, i, j + 1 );
+        dfs(grid, i, j - 1 );
 
-        dfs(grid, i + 1, j + 1 ,treshold);
-        dfs(grid, i + 1, j - 1 ,treshold);
-        dfs(grid, i - 1, j + 1 ,treshold);
-        dfs(grid, i - 1, j - 1 ,treshold);
+        dfs(grid, i + 1, j + 1 );
+        dfs(grid, i + 1, j - 1 );
+        dfs(grid, i - 1, j + 1 );
+        dfs(grid, i - 1, j - 1 );
 
         return 1;
     }
@@ -53,6 +53,6 @@ class IslandMatrix {
             arr[i] = Array.ConvertAll(Console.ReadLine().Split(' '), arrTemp => Convert.ToInt32(arrTemp));
         }
         
-        System.Console.WriteLine(numIsland(arr,1));
+        System.Console.WriteLine(numIsland(arr));
     }
 }
