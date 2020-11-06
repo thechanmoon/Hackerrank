@@ -19,7 +19,7 @@ public class StringConstruction {
         for (int qItr = 0; qItr < q; qItr++) {
             String s = scanner.nextLine();
 
-            int result = new Solution().stringConstruction(s);
+            int result = new Solution().stringConstructionUsingArray(s);
 
             // bufferedWriter.write(String.valueOf(result));
             // bufferedWriter.newLine();
@@ -48,6 +48,27 @@ class Solution {
         for (int i = 0; i < s.length(); i++) {
             if (sb.toString().contains(String.valueOf(ch[i])) == false) {
                 sb.append(ch[i]);
+                count++;
+                continue;
+            }
+        }
+        return count;
+    }
+
+    int stringConstructionUsingArray(String s) {
+
+        if (s.length() == 0)
+            return 0;
+
+        int count = 0;
+        int[] ascii = new int[26];
+
+        char[] ch = s.toCharArray();
+
+        for (int i = 0; i < s.length(); i++) {
+            int index = ch[i] - 'a';
+            if (ascii[index] == 0) {
+                ascii[index]++;
                 count++;
                 continue;
             }
