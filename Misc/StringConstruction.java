@@ -19,7 +19,9 @@ public class StringConstruction {
         for (int qItr = 0; qItr < q; qItr++) {
             String s = scanner.nextLine();
 
-            int result = new Solution().stringConstructionUsingArray(s);
+            // int result = new Solution().stringConstruction(s);
+            // int result = new Solution().stringConstructionUsingArray(s);
+            int result = new Solution().stringConstructionUsingBitVector(s);
 
             // bufferedWriter.write(String.valueOf(result));
             // bufferedWriter.newLine();
@@ -69,6 +71,27 @@ class Solution {
             int index = ch[i] - 'a';
             if (ascii[index] == 0) {
                 ascii[index]++;
+                count++;
+                continue;
+            }
+        }
+        return count;
+    }
+
+    static int stringConstructionUsingBitVector(String s) {
+
+        if (s.length() == 0)
+            return 0;
+
+        int count = 0;
+        int BitVector = 0;
+
+        char[] ch = s.toCharArray();
+
+        for (int i = 0; i < s.length(); i++) {
+            int index = ch[i] - 'a';
+            if ((BitVector & (1 << index)) == 0) {
+                BitVector |= (1 << index);
                 count++;
                 continue;
             }
