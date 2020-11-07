@@ -91,7 +91,9 @@ class Solution {
         for (int qItr = 0; qItr < q; qItr++) {
             string s = Console.ReadLine();
 
-            int result = stringConstruction(s);
+            // int result = stringConstruction(s);
+            // int result = stringConstructionUsingArray(s);
+            int result = stringConstructionUsingBitVector(s);
 
             textWriter.WriteLine(result);
         }
