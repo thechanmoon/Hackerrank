@@ -1,0 +1,43 @@
+// 'use strict';
+
+// process.stdin.resume();
+// process.stdin.setEncoding('utf-8');
+
+// let inputString = '';
+// let currentLine = 0;
+
+// process.stdin.on('data', inputStdin => {
+//     inputString += inputStdin;
+// });
+
+// process.stdin.on('end', _ => {
+//     inputString = inputString.trim().split('\n').map(string => {
+//         return string.trim();
+//     });
+    
+//     main();    
+// });
+
+// function readLine() {
+//     return inputString[currentLine++];
+// }
+
+function getMaxLessThanK(n,k)
+{    
+    return ((k | (k - 1)) > n) ? (k - 2) : (k - 1);
+}
+
+// function getMaxLessThanK(n, k) {
+//     let max_anb = 0;
+//     for (let b = n; b > 0; b--) {
+//         for (let a = b-1; a > 0; a--) {
+//             if ((a & b) < k && (a & b) > max_anb){
+//                 max_anb = (a&b);
+//             }
+//         }
+//     }
+//     return max_anb;
+// }
+console.log(getMaxLessThanK(5,2));
+console.log(getMaxLessThanK(8,5));
+console.log(getMaxLessThanK(2,2));

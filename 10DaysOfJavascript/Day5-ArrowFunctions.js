@@ -32,6 +32,14 @@ function modifyArray(nums) {
     return nums.map(x => x%2 ? x*3: x*2);
 }
 
+// function modifyArray(nums) {
+
+//     nums.forEach((element, index) => {
+// 	   nums[index] = element * (2 + element%2);
+//     });
+
+//     return nums;
+// }
 
 function main() {
     const n = +(readLine());
